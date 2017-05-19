@@ -23,12 +23,22 @@ if (rem(delta_t, dt) != 0)
 max_potential = max(u);
 adj_potential = max_potential * (1-apd_x);
 
-% Find the points on the action potential where voltage 
+% Find the indices of the action potential where voltage 
 % exceeds adj_potential, and where it deceeds.
 % (The word "exceed" does not have an antonym)
-first = lookup(u(1:end/2), adj_potential);
-last = lookup(u(first+2:end), adj_potential);
+first = 1;
+last = 1;
 
+for i = 2:length(u)
+  if (u(i-1) <= adj_potential & u(i) >= adj_potential)
+    first = i;
+    end
+  if (u(i-1) >= adj_potential & u(i) <= adj_potential)
+    last = i-1;
+    end
+  end
+  
+% Get the relevant values (spaced apart by delta_t)
 u_subset = u(first:delta_t/dt:last);
 x_vals = u_subset(1:end-1);
 y_vals = u_subset(2:end);
