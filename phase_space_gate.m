@@ -1,4 +1,4 @@
-% To plot into phase space: u(t) against u(t + delta_t)
+% To plot into phase space: u(t) against nu(t)
 % within the range of APD_X (APD_90, APD_95, etc.)
 % dt is the time interval between potential values in u,
 % i.e. the duration between u(1) and u(2).
