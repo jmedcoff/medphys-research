@@ -6,6 +6,8 @@
 
 function [x_vals, y_vals] = phase_space_gate(u, nu, dt, delta_t, apd_x)
 
+warning('off', 'Octave:possible-matlab-short-circuit-operator');
+
 if !(isvector(u) & isvector(nu))
   error("expected argument \"u\" to be a vector");
   end
@@ -41,4 +43,4 @@ for i = 2:length(u)
 % Get the relevant values (spaced apart by delta_t)
 x_vals = u(first:delta_t/dt:last);
 y_vals = nu(first:delta_t/dt:last);
-endfunction
+end

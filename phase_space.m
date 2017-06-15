@@ -6,6 +6,8 @@
 
 function [x_vals, y_vals] = phase_space(u, dt, delta_t, apd_x)
 
+warning('off', 'Octave:possible-matlab-short-circuit-operator');
+
 if !(isvector(u))
   error("expected argument \"u\" to be a vector");
   end
@@ -42,4 +44,4 @@ for i = 2:length(u)
 u_subset = u(first:delta_t/dt:last);
 x_vals = u_subset(1:end-1);
 y_vals = u_subset(2:end);
-endfunction
+end
