@@ -1,6 +1,6 @@
 % Plots into phase space using sampled potential instead of time intervals.
 % 
-function [x_vals, y_vals] = phase_space_volt(u, t, dv, apd_x)
+function [x_vals, y_vals] = phase_space_volt2(u, dv, apd_x)
 
 errortolerance = 0.05;
 
@@ -30,22 +30,11 @@ for i = 2:length(u)
 end
 
 uprime = u(first:last);
-tprime = t(first:last);
+
 uvals1 = uprime(1):dv:maxpot;
 uvals2 = maxpot:-dv:uprime(end);
 uvals = [uvals1 uvals2];
-utimes = [];
-j = 1;
 
-for k = 1:length(uprime)
-  if (abs(uprime(k) - uvals(j)) < errortolerance)
-    utimes(end+1) = tprime(k);
-    j = j + 1;
-  end
-  if (j > length(uvals))
-    break
-end
-
-x_vals = utimes(1:end-1);
-y_vals = utimes(2:end);
+x_vals = uvals(1:end-1);
+y_vals = uvals(2:end);
 end
