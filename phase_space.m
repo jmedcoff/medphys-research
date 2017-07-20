@@ -30,8 +30,9 @@ adj_potential = max_potential * (1-apd_x);
 % (The word "exceed" does not have an antonym)
 first = 1;
 last = 1;
+max = 1;
 
-for i = 2:length(u)
+for i = 2:(length(u) - 1)
   if (u(i-1) <= adj_potential & u(i) >= adj_potential)
     first = i;
     end
@@ -44,4 +45,5 @@ for i = 2:length(u)
 u_subset = u(first:delta_t/dt:last);
 x_vals = u_subset(1:end-1);
 y_vals = u_subset(2:end);
+
 end
