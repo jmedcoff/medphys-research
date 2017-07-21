@@ -26,18 +26,21 @@ for i = 2:(length(u) - 1)
     last = i-1;
     end
   if (u(i-1) <= u(i) & u(i) >= u(i+1))
-    max = i;
+    max_u = i;
     end
   end
 
-upstroke = u(first:max);
-downstroke = u(max:last);
+upstroke = u(first:max_u);
+downstroke = u(max_u:last);
 
 ratio = length(upstroke)/length(downstroke);
 uprate = (delta_t*ratio)/(2*dt);
-downrate = (delta_t*2)/(ratio*dt);
+downrate = (delta_t*2)/(dt);
+uprate = floor(uprate);
 
-x = [upstroke(1:uprate:end) downstroke(1:downrate:end-shamt)];
-y = [upstroke(shamt:uprate:end) downstroke(1:downrate:end)];
+x = [upstroke(1:uprate:end-(delta_t/dt)) downstroke(1:downrate:(end-(delta_t/dt)))];
+y = [upstroke((delta_t/dt):uprate:end) downstroke((delta_t/dt):downrate:end)];
 x = x(1:length(y));
+
+
 end
