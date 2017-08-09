@@ -1,4 +1,4 @@
-function [x,y] = phase_adaptive(u, dt, delta_t, apd_x, shamt)
+function [x,y] = phase_adaptive(u, dt, delta_t, apd_x)
 
 warning('off', 'Octave:possible-matlab-short-circuit-operator');
 
@@ -40,7 +40,11 @@ uprate = floor(uprate);
 
 x = [upstroke(1:uprate:end-(delta_t/dt)) downstroke(1:downrate:(end-(delta_t/dt)))];
 y = [upstroke((delta_t/dt):uprate:end) downstroke((delta_t/dt):downrate:end)];
-x = x(1:length(y));
 
+if (length(x) < length(y))
+  y = y(1:length(x));
+else
+x = x(1:length(y));
+end
 
 end
