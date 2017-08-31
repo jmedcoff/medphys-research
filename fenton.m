@@ -33,6 +33,9 @@ P(12)=0.13;
 P(13)=0.04;
 
 
+block = 0.0;
+
+
 Cm=1.00;
 
 Ifi=0.00; Iso=0.00; Isi=0.0;
@@ -72,6 +75,7 @@ for time=0.0:dt:500.0
         Iso=Iso+(V-1.25)/(1.25*P(8));
     end
     
+    Isi = Isi*(1-block);
     Vnew=V-dt*(Ifi+Iso+Isi+Istim)/Cm;
     V=Vnew;
     
