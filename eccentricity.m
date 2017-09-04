@@ -1,5 +1,7 @@
 function ecc = eccentricity(a)
 
+# takes the generalized conic coefficient vector "a" and returns eccentricity
+
 F=a(6);
 E=a(5);
 D=a(4);

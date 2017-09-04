@@ -1,5 +1,8 @@
 function sm = semimajor(a)
 
+# Much like eccentricity(), this function takes the vector of coefficients from
+# the general equation, and returns the semimajor axis length.
+
 F=a(6);
 E=a(5);
 D=a(4);

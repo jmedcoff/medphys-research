@@ -1,5 +1,8 @@
 function [x,y] = phase_adaptive(u, dt, delta_t, apd_x)
 
+# This is my grand achievement of the semester, the code that utilizes
+# adaptive sampling to get a phase space trajectory.
+
 warning('off', 'Octave:possible-matlab-short-circuit-operator');
 
 if !(isvector(u))

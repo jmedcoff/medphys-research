@@ -1,5 +1,7 @@
 function ecc = quickscript(u)
 
+# I'm not sure why I wrote this, so it's probably not of much use.
+
 # initialize data
 ecc = [];
 dt = 0.04;

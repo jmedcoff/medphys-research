@@ -4,6 +4,9 @@
 % i.e. the duration between u(1) and u(2).
 % delta_t must be an integer multiple of dt.
 
+% phase_adaptive should be used instead, because the adaptive sampling
+% proves to be a bit nicer for fitting ellipses to.
+
 function [x_vals, y_vals] = phase_space(u, dt, delta_t, apd_x)
 
 warning('off', 'Octave:possible-matlab-short-circuit-operator');

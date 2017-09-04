@@ -1,3 +1,6 @@
+%Fenton code modified to keep track of gate at every iteration as well as potential
+
+
 %space-clamped Fenton model
 
 dt=0.04;

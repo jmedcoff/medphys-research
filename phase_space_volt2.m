@@ -1,5 +1,6 @@
 % Plots into phase space using sampled potential instead of time intervals.
-% 
+% This has shown to be completely useless, as plotting this way will always
+% give linear behaviour.
 function [x_vals, y_vals] = phase_space_volt2(u, dv, apd_x)
 
 errortolerance = 0.05;
